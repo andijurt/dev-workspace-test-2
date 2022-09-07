@@ -1,6 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
-  name: workspace-suva-monitoring-infra
+  name: workspace-pycharm-demo
   namespace: jua-devspaces
 projects:
   - name: suva-monitoring-infra
