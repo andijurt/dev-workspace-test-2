@@ -1,0 +1,31 @@
+schemaVersion: 2.2.0
+metadata:
+  name: workspace-suva-monitoring-infra
+  namespace: jua-devspaces
+projects:
+  - name: suva-monitoring-infra
+    git:
+      remotes:
+        origin: "https://github.com/andijurt/dev-workspace-test-2.git"
+      checkoutFrom:
+        revision: master
+components:
+  - container:
+      args:
+      - tail
+      - -f
+      - /dev/null
+      cpuLimit: 400m
+      cpuRequest: 100m
+      image: harbor.suvanet.ch/columbo-intern/web-terminal/web-terminal-tooling-rhel8-suva:1.0
+      memoryLimit: 256Mi
+      memoryRequest: 128Mi
+      mountSources: true
+      sourceMapping: /projects
+      volumeMounts:
+        - name: projects
+          path: /projects
+    name: web-terminal-tooling-suva
+  - name: projects
+    volume:
+      size: 3Gi
